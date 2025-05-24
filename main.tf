@@ -21,6 +21,7 @@ resource "azurerm_network_interface" "frontend" {
     name                          = "frontend-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.frontend.id
   }
 }
 
@@ -72,6 +73,7 @@ resource "azurerm_network_interface" "mongodb" {
     name                          = "mongodb-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.mongodb.id
   }
 }
 
@@ -123,6 +125,7 @@ resource "azurerm_network_interface" "catalogue" {
     name                          = "catalogue-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.catalogue.id
   }
 }
 
@@ -174,6 +177,7 @@ resource "azurerm_network_interface" "redis" {
     name                          = "redis-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.redis.id
   }
 }
 
@@ -225,6 +229,7 @@ resource "azurerm_network_interface" "user" {
     name                          = "user-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.user.id
   }
 }
 
@@ -276,6 +281,7 @@ resource "azurerm_network_interface" "cart" {
     name                          = "cart-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.cart.id
   }
 }
 
@@ -327,6 +333,7 @@ resource "azurerm_network_interface" "mysql" {
     name                          = "mysql-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.mysql.id
   }
 }
 
@@ -378,6 +385,7 @@ resource "azurerm_network_interface" "shipping" {
     name                          = "shipping-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.shipping.id
   }
 }
 
@@ -429,6 +437,7 @@ resource "azurerm_network_interface" "rabbitmq" {
     name                          = "rabbitmq-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.rabbitmq.id
   }
 }
 
@@ -480,6 +489,7 @@ resource "azurerm_network_interface" "payment" {
     name                          = "payment-nic"
     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.payment.id
   }
 }
 
