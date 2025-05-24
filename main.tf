@@ -587,3 +587,5 @@ resource "azurerm_dns_a_record" "payment" {
   records             = [azurerm_network_interface.payment.private_ip_address]
 }
 
+#
+
