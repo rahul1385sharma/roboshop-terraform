@@ -300,7 +300,7 @@ resource "azurerm_virtual_machine" "cart" {
   }
   os_profile {
     computer_name  = "cart-vm"
-    admin_cartname = "azcart"
+    admin_username = "azuser"
     admin_password = "Chicago12345"
 
   }
@@ -351,7 +351,7 @@ resource "azurerm_virtual_machine" "mysql" {
   }
   os_profile {
     computer_name  = "mysql-vm"
-    admin_mysqlname = "azmysql"
+    admin_username = "azuser"
     admin_password = "Chicago12345"
 
   }
@@ -402,7 +402,7 @@ resource "azurerm_virtual_machine" "shipping" {
   }
   os_profile {
     computer_name  = "shipping-vm"
-    admin_shippingname = "azshipping"
+    admin_username = "azuser"
     admin_password = "Chicago12345"
 
   }
@@ -453,7 +453,7 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   }
   os_profile {
     computer_name  = "rabbitmq-vm"
-    admin_rabbitmqname = "azrabbitmq"
+    admin_username = "azuser"
     admin_password = "Chicago12345"
 
   }
@@ -504,7 +504,7 @@ resource "azurerm_virtual_machine" "payment" {
   }
   os_profile {
     computer_name  = "payment-vm"
-    admin_paymentname = "azpayment"
+    admin_username = "azuser"
     admin_password = "Chicago12345"
 
   }
