@@ -421,55 +421,55 @@ resource "azurerm_virtual_machine" "shipping" {
 
 
 
-resource "azurerm_public_ip" "rabbitmq" {
-  name                    = "rabbitmq"
-  location                = "UK West"
-  resource_group_name     = "deepti-rg"
-  allocation_method       = "Static"
-}
-
-resource "azurerm_network_interface" "rabbitmq" {
-  name                = "rabbitmq-nic"
-  location            = "UK West"
-  resource_group_name = "deepti-rg"
-
-  ip_configuration {
-    name                          = "rabbitmq-nic"
-    subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.rabbitmq.id
-  }
-}
-
-resource "azurerm_virtual_machine" "rabbitmq" {
-  name                  = "rabbitmq-vm"
-  location              = "UK West"
-  resource_group_name   = "deepti-rg"
-  #network_interface_ids = ["/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/networkInterfaces/terraform-testing"]
-  network_interface_ids = [azurerm_network_interface.rabbitmq.id]
-  vm_size               = "Standard_B2s"
-  delete_os_disk_on_termination = true
-  delete_data_disks_on_termination = true
-
-  storage_image_reference {
-    id = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Compute/images/local-devops-practice"
-  }
-  storage_os_disk {
-    name              = "rabbitmq-vm-disk"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
-  os_profile {
-    computer_name  = "rabbitmq-vm"
-    admin_username = "azuser"
-    admin_password = "Chicago12345"
-
-  }
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
-}
+# resource "azurerm_public_ip" "rabbitmq" {
+#   name                    = "rabbitmq"
+#   location                = "UK West"
+#   resource_group_name     = "deepti-rg"
+#   allocation_method       = "Static"
+# }
+#
+# resource "azurerm_network_interface" "rabbitmq" {
+#   name                = "rabbitmq-nic"
+#   location            = "UK West"
+#   resource_group_name = "deepti-rg"
+#
+#   ip_configuration {
+#     name                          = "rabbitmq-nic"
+#     subnet_id                     = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/virtualNetworks/deepti-vnet/subnets/default"
+#     private_ip_address_allocation = "Dynamic"
+#     public_ip_address_id          = azurerm_public_ip.rabbitmq.id
+#   }
+# }
+#
+# resource "azurerm_virtual_machine" "rabbitmq" {
+#   name                  = "rabbitmq-vm"
+#   location              = "UK West"
+#   resource_group_name   = "deepti-rg"
+#   #network_interface_ids = ["/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/networkInterfaces/terraform-testing"]
+#   network_interface_ids = [azurerm_network_interface.rabbitmq.id]
+#   vm_size               = "Standard_B2s"
+#   delete_os_disk_on_termination = true
+#   delete_data_disks_on_termination = true
+#
+#   storage_image_reference {
+#     id = "/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Compute/images/local-devops-practice"
+#   }
+#   storage_os_disk {
+#     name              = "rabbitmq-vm-disk"
+#     caching           = "ReadWrite"
+#     create_option     = "FromImage"
+#     managed_disk_type = "Standard_LRS"
+#   }
+#   os_profile {
+#     computer_name  = "rabbitmq-vm"
+#     admin_username = "azuser"
+#     admin_password = "Chicago12345"
+#
+#   }
+#   os_profile_linux_config {
+#     disable_password_authentication = false
+#   }
+# }
 
 
 
@@ -557,12 +557,12 @@ resource "azurerm_dns_a_record" "redis" {
   records             = [azurerm_network_interface.redis.private_ip_address]
 }
 
-resource "azurerm_dns_a_record" "rabbitmq" {
-  name                = "rabbitmq-dev"
-  zone_name           = "rahuldevops85.online"
-  resource_group_name   = "deepti-rg"
-  ttl                 = 3
-  records             = [azurerm_network_interface.rabbitmq.private_ip_address]
+# resource "azurerm_dns_a_record" "rabbitmq" {
+#   name                = "rabbitmq-dev"
+#   zone_name           = "rahuldevops85.online"
+#   resource_group_name   = "deepti-rg"
+#   ttl                 = 3
+#   records             = [azurerm_network_interface.rabbitmq.private_ip_address]
 }
 
 resource "azurerm_dns_a_record" "user" {
