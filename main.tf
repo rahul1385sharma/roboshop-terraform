@@ -563,7 +563,7 @@ resource "azurerm_dns_a_record" "redis" {
 #   resource_group_name   = "deepti-rg"
 #   ttl                 = 3
 #   records             = [azurerm_network_interface.rabbitmq.private_ip_address]
-}
+# }
 
 resource "azurerm_dns_a_record" "user" {
   name                = "user-dev"
