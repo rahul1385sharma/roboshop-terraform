@@ -597,5 +597,12 @@ resource "azurerm_dns_a_record" "payment" {
   records             = [azurerm_network_interface.payment.private_ip_address]
 }
 
+resource "azurerm_dns_a_record" "mysql" {
+  name                = "mysql-dev"
+  zone_name           = "rahuldevops85.online"
+  resource_group_name   = "deepti-rg"
+  ttl                 = 3
+  records             = [azurerm_network_interface.mysql.private_ip_address]
+}
 #
 
