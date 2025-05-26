@@ -21,8 +21,9 @@ resource "azurerm_virtual_machine" "vm" {
   name                    = var.name
   location                = var.location
   resource_group_name     = var.rg_name
-  #network_interface_ids = ["/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/networkInterfaces/terraform-testing"]network_interface_ids   = [azurerm_network_interface.privateip.id]
-  vm_size                 = "Standard_B2s"
+  #network_interface_ids = ["/subscriptions/3c4d3a6f-a203-48fd-8d99-85c25b48c45f/resourceGroups/deepti-rg/providers/Microsoft.Network/networkInterfaces/terraform-testing"]
+  network_interface_ids  = [azurerm_network_interface.privateip.id]
+  vm_size                = "Standard_B2s"
   delete_os_disk_on_termination = true
   delete_data_disks_on_termination = true
 
@@ -39,7 +40,6 @@ resource "azurerm_virtual_machine" "vm" {
     computer_name  = var.name
     admin_username = "azuser"
     admin_password = "Chicago12345"
-
   }
   os_profile_linux_config {
     disable_password_authentication = false
