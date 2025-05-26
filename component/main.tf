@@ -1,19 +1,15 @@
-resource "azurerm_public_ip" "publicip"
-{
+resource "azurerm_public_ip" "publicip" {
   name                    = var.name
   location                = var.location
   resource_group_name     = var.rg_name
   allocation_method       = "Static"
 }
 
-resource "azurerm_network_interface" "privateip"
-{
+resource "azurerm_network_interface" "privateip" {
   name                = var.name
   location            = var.location
   resource_group_name = var.rg_name
-
-  ip_configuration
-  {
+  ip_configuration {
     name                          = var.name
     subnet_id                     = var.ip_configuration_subnet_id
     private_ip_address_allocation = "Dynamic"
@@ -21,8 +17,7 @@ resource "azurerm_network_interface" "privateip"
   }
 }
 
-resource "azurerm_virtual_machine" "vm"
-{
+resource "azurerm_virtual_machine" "vm" {
   name                    = var.name
   location                = var.location
   resource_group_name     = var.rg_name
@@ -51,8 +46,7 @@ resource "azurerm_virtual_machine" "vm"
   }
 }
 
-resource "azurerm_dns_a_record" "dns_record"
-{
+resource "azurerm_dns_a_record" "dns_record" {
   name                = "${var.name}-dev"
   zone_name           = var.zone_name
   resource_group_name   = var.rg_name

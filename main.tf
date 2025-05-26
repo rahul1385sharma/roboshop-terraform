@@ -1,5 +1,4 @@
-module "frontend"
-{
+module "frontend" {
   source                      = "./component"
   ip_configuration_subnet_id  = var.ip_configuration_subnet_id
   location                    = var.location
