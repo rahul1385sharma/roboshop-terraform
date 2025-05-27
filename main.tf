@@ -8,7 +8,7 @@ module "frontend" {
   zone_name                   = var.zone_name
 }
 
-# resource "azurerm_public_ip" "frontend" {
+## resource "azurerm_public_ip" "frontend" {
 #   name                    = "frontend"
 #   location                = "UK West"
 #   resource_group_name     = "deepti-rg"
